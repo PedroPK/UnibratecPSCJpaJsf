@@ -38,7 +38,7 @@ public abstract class AbstractDAO implements InterfaceDAO {
 	}
 	
 	/*
-	 * Vers�o anterior do m�todo abaixo
+	 * Versão anterior do método abaixo
 	 * 
 	 * 
 	public void alterar(Entidade pEntidade) {
