@@ -1,7 +1,5 @@
-<%@page import="java.util.Iterator"%>
 <%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 <%@page import="br.unibratec.linhasaereas.entidades.Passageiro"%>
-<%@page import="java.util.Collection"%>
 <%@page import="br.unibratec.web.ProcessarFormularioServlet"%>
 <%@ page 
 	language="java" 

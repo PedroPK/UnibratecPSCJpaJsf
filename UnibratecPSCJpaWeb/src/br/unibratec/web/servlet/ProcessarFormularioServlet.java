@@ -1,4 +1,4 @@
-package br.unibratec.web;
+package br.unibratec.web.servlet;
 
 import java.io.IOException;
 import java.util.Collection;

@@ -1,7 +1,6 @@
 package br.unibratec.relacionamentos.onetoone.main;
 
-import java.time.Instant;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 import br.unibratec.relacionamentos.onetoone.entidades.DadosPessoais;
 import br.unibratec.relacionamentos.onetoone.entidades.Pessoa;
@@ -73,7 +72,8 @@ public class MainRelacionamentosOneToOne {
 		DadosPessoais dp = new DadosPessoais();
 		dp.setCpf(ConstantesGerais.CPF_123_456_789_01);
 		dp.setNome(ConstantesGerais.JOAO_BAPTISUNTUM);
-		dp.setDataNascimento(Date.from(Instant.now()));
+		//dp.setDataNascimento(Date.from(Instant.now()));
+		dp.setDataNascimento(GregorianCalendar.getInstance().getTime());
 		
 		Pessoa p = new Pessoa();
 		p.setCpf(ConstantesGerais.CPF_123_456_789_01);
