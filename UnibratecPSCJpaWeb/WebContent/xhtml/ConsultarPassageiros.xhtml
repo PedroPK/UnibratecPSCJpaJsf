@@ -1,0 +1,53 @@
+<!DOCTYPE 
+	html 
+	PUBLIC 
+	"-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:c="http://xmlns.jcp.org/jsf/core"
+>
+	<head>
+		<title><f:insert name="title">Tela de Consulta ao cadastro de Passageiros</f:insert></title>
+	</head>
+	<body>
+		<f:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+		<div id="header">
+			<!-- 
+			<f:insert name="header">
+				Header area.  See comments below this line in the source.
+				< ! - -  include your header file or uncomment the include below and create header.xhtml in this directory - - >
+				< ! - - <f:include src="header.xhtml"/> - - >
+			</f:insert>
+			 -->
+		</div>
+		
+		
+		<div id="content">
+			<f:insert name="content">
+				Content area.  See comments below this line in the source.
+				<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+			  	<!-- <div> -->
+				<!-- <f:include src="content.xhtml"/> -->  
+				<!-- </div> -->
+			</f:insert>
+			
+			<h:dataTable value="#{passageiroManagedBean.colecaoPassageiros}" var="passageiro" border="1">
+				<h:column>#{passageiro.CPF}</h:column>
+				<h:column>#{passageiro.nome}</h:column>
+				<h:column>#{passageiro.EMail}</h:column>
+				<h:column>#{passageiro.dataNascimento}</h:column>
+				<h:column>#{passageiro.isPortadorNecessidadesEspeciais}</h:column>
+			</h:dataTable>
+		</div>
+		
+		<div id="footer">
+			<f:insert name="footer">
+				Footer area.  See comments below this line in the source.
+				<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
+				<!--<f:include src="footer.xhtml"/>  -->
+		  </f:insert>
+		</div>
+	</body>
+</html>
