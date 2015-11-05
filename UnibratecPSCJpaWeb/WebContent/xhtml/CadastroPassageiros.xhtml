@@ -15,12 +15,16 @@
 				CPF: <h:inputText value="#{passageiroManagedBean.passageiro.CPF}" />
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
-				Data de Nascimento: <h:inputText value="#{passageiroManagedBean.passageiro.dataNascimento}" />
-				É portador de Necessidades Especiais? 
+				Data de Nascimento: 
+					<h:inputText value="#{passageiroManagedBean.passageiro.dataNascimento}" >
+						
+					</h:inputText>
+				É portador de Necessidades Especiais?
 					<h:selectOneRadio value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:selectItem itemValue="True" itemLabel="Sim" />
 						<c:selectItem itemValue="False" itemLabel="Não" />
 					</h:selectOneRadio>
+				<h:selectBooleanCheckbox />
 			</h:panelGrid>
 			<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
 		</h:form>

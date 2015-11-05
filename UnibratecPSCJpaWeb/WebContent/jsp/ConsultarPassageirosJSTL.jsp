@@ -11,7 +11,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Tela de Consulta de Passageiros</title>
-		
 	</head>
 	<body>
 		<table border="1" width="70%">
@@ -27,7 +26,10 @@
 				<th width="60%">
 					Nome:
 				</th>
-				<th width="30%">
+				<th width="25">
+					Data de Nascimento:
+				</th>
+				<th width="05%">
 					Necessidades Especiais?
 				</th>
 			</tr>
@@ -39,6 +41,9 @@
 						</td>
 						<td>
 							${passageiros.nome}
+						</td>
+						<td>
+							${passageiros.dataNascimento}
 						</td>
 						<td>
 							${passageiros.isPortadorNecessidadesEspeciais}
