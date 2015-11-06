@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
+import br.unibratec.util.BibliotecaFuncoes;
 
 @ManagedBean
 public class PassageiroManagedBean {
@@ -20,7 +21,6 @@ public class PassageiroManagedBean {
 		}
 		return this.aPassageiro;
 	}
-	
 	public void setPassageiro(Passageiro pPassageiro) {
 		this.aPassageiro = pPassageiro;
 	}
@@ -36,7 +36,7 @@ public class PassageiroManagedBean {
 	}
 	
 	public void inserir() {
-		if ( this.aPassageiro != null ) {
+		if ( this.aPassageiro != null && this.aPassageiro.getChavePrimaria() != null ) {
 			IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 			fachada.inserir(this.aPassageiro);
 		}

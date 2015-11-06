@@ -1,4 +1,4 @@
-<%@page import="br.unibratec.web.ProcessarFormularioServlet"%>
+<%@page import="br.unibratec.web.servlet.ProcessarFormularioServlet"%>
 <%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 
 <%@page 

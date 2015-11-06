@@ -1,6 +1,5 @@
 <%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 <%@page import="br.unibratec.linhasaereas.entidades.Passageiro"%>
-<%@page import="br.unibratec.web.ProcessarFormularioServlet"%>
 <%@ page 
 	language="java" 
 	contentType="text/html; charset=UTF-8"

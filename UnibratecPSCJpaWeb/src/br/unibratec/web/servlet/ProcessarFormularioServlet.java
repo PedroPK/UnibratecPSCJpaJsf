@@ -35,6 +35,10 @@ public class ProcessarFormularioServlet extends HttpServlet {
 	public static final String NM_REQ_DT_NASCIMENTO							= ConstantesPassageiro.ID_REQ_DataNascimento;
 	public static final String NM_REQ_IS_PORTADOR_NECESSIDADES_ESPECIAIS	= ConstantesPassageiro.ID_REQ_IsPortadorNecessidadesEspeciais;
 	
+	private static final String JSP_CADASTRO_PASSAGEIROS = "jsp/CadastroPassageirosV2.jsp";
+	private static final String JSP_CONSULTAR_PASSAGEIROS_SCRIPTLETS = "jsp/ConsultarPassageirosScriptlets.jsp";
+	private static final String JSP_CONSULTAR_PASSAGEIROS_JSTL = "jsp/ConsultarPassageirosJSTL.jsp";
+	
 	/**
 	 * 
 	 */
@@ -48,8 +52,8 @@ public class ProcessarFormularioServlet extends HttpServlet {
 	}
 
 	protected void service(
-		HttpServletRequest pRequest, 
-		HttpServletResponse pResponse) 
+		HttpServletRequest		pRequest, 
+		HttpServletResponse		pResponse) 
 	throws ServletException, IOException {
 		if ( isMetodoDoPost(pRequest) ) {
 			doPost(pRequest, pResponse);
@@ -65,12 +69,12 @@ public class ProcessarFormularioServlet extends HttpServlet {
 	
 	private void redirecionar_CadastroPassageirosJSP(HttpServletRequest pRequest, HttpServletResponse pResponse)
 	throws ServletException, IOException {
-		redirecionarJSP(pRequest, pResponse, "jsp/CadastroPassageirosV2.jsp");
+		redirecionarJSP(pRequest, pResponse, JSP_CADASTRO_PASSAGEIROS	);
 	}
 	
 	private void redirecionar_ConsultarPassageirosJSP(HttpServletRequest pRequest, HttpServletResponse pResponse)
 	throws ServletException, IOException {
-		redirecionarJSP(pRequest, pResponse, "jsp/ConsultarPassageirosV2.jsp");
+		redirecionarJSP(pRequest, pResponse, JSP_CONSULTAR_PASSAGEIROS_SCRIPTLETS);
 	}
 
 	private void redirecionarJSP(HttpServletRequest pRequest, HttpServletResponse pResponse, String pArquivoJSP)

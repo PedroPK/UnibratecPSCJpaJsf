@@ -17,58 +17,76 @@
 		
 	</head>
 	<body>
-		<table border="1" width="70%">
-			<tr>
-				<th colspan="3">
-					Consulta ao cadastro de Passageiros
-				</th>
-			</tr>
-			<tr>
-				<th width="20%">
-					CPF
-				</th>
-				<th width="60%">
-					Nome:
-				</th>
-				<th width="30%">
-					Necessidades Especiais?
-				</th>
-			</tr>
-			<%
-				Collection<Passageiro> resultSet = 
-					(Collection<Passageiro>) request.getAttribute(
-						ProcessarFormularioServlet.REQ_RESULTSET_PASSAGEIROS);
-				
-				if ( BibliotecaFuncoes.isColecaoValida(resultSet) ) {
-					Iterator<Passageiro> iterator = resultSet.iterator();
+		<form>
+			<table width="70%">
+				<tr>
+					<th colspan="3">
+						Consulta ao cadastro de Passageiros
+					</th>
+				</tr>
+				<tr>
+					<th width="20%">
+						CPF
+					</th>
+					<th width="60%">
+						Nome:
+					</th>
+					<th width="30%">
+						Necessidades Especiais?
+					</th>
+				</tr>
+				<%
+					Collection<Passageiro> resultSet = 
+						(Collection<Passageiro>) request.getAttribute(
+							ProcessarFormularioServlet.REQ_RESULTSET_PASSAGEIROS);
 					
-					while ( iterator.hasNext() ) {
-						Passageiro passageiro = iterator.next();
-			%>
-			<tr>
-				<td>
-					${passageiros.CPF}
-				</td>
-				<td>
-					${passageiros.nome}
-				</td>
-				<td>
-					${passageiros.isPortadorNecessidadesEspeciais}
-				</td>
-			</tr>
-			<%
-					}
-				} else {
-			%>
+					if ( BibliotecaFuncoes.isColecaoValida(resultSet) ) {
+						Iterator<Passageiro> iterator = resultSet.iterator();
+						
+						int indice = 0;
+						String corLinha = "#F0FFFF";
+						while ( iterator.hasNext() ) {
+							Passageiro passageiro = iterator.next();
+				%>
+				<tr bgcolor="<%=corLinha%>">
+					<td>
+						<%=passageiro.getCPF()%>
+					</td>
+					<td>
+						<%=passageiro.getNome()%>
+					</td>
+					<td>
+						<%=passageiro.getIsPortadorNecessidadesEspeciais()%>
+					</td>
+				</tr>
+				<%
+							indice = indice + 1;
+							if ( indice % 2 == 0 ) {
+								corLinha = "#F0FFFF";
+							} else {
+								corLinha = "#FFF5EE";
+							}
+						}
+					} else {
+				%>
 				<tr>
 					<td colspan="3">
 						Nenhum registro a ser exibido
 					</td>
 				</tr>
-			<%
-				}
-			%>
-		</table>
-		<input type="submit" value="Voltar">
+				<%
+					}
+				%>
+				<tr>
+					<td colspan="3">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" value="Voltar" >
+					</td>
+				</tr>
+			</table>
+		</form>
 	</body>
 </html>
