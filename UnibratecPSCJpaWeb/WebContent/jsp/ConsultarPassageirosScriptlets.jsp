@@ -17,7 +17,6 @@
 		
 	</head>
 	<body>
-<<<<<<< HEAD
 		<form>
 			<table width="70%">
 				<tr>
@@ -80,6 +79,7 @@
 				%>
 				<tr>
 					<td colspan="3">
+						&nbsp;
 					</td>
 				</tr>
 				<tr>
@@ -89,60 +89,5 @@
 				</tr>
 			</table>
 		</form>
-=======
-		<table border="1" width="70%">
-			<tr>
-				<th colspan="3">
-					Consulta ao cadastro de Passageiros
-				</th>
-			</tr>
-			<tr>
-				<th width="20%">
-					CPF
-				</th>
-				<th width="60%">
-					Nome:
-				</th>
-				<th width="30%">
-					Necessidades Especiais?
-				</th>
-			</tr>
-			<%
-				Collection<Passageiro> resultSet = 
-					(Collection<Passageiro>) request.getAttribute(
-						ProcessarFormularioServlet.REQ_RESULTSET_PASSAGEIROS);
-				
-				if ( BibliotecaFuncoes.isColecaoValida(resultSet) ) {
-					Iterator<Passageiro> iterator = resultSet.iterator();
-					
-					while ( iterator.hasNext() ) {
-						Passageiro passageiro = iterator.next();
-			%>
-			<tr>
-				<td>
-					${passageiros.CPF}
-				</td>
-				<td>
-					${passageiros.nome}
-				</td>
-				<td>
-					${passageiros.isPortadorNecessidadesEspeciais}
-				</td>
-			</tr>
-			<%
-					}
-				} else {
-			%>
-				<tr>
-					<td colspan="3">
-						Nenhum registro a ser exibido
-					</td>
-				</tr>
-			<%
-				}
-			%>
-		</table>
-		<input type="submit" value="Voltar">
->>>>>>> 72304107e8ab3b34ffd83247e1bca7eef3beb716
 	</body>
 </html>
