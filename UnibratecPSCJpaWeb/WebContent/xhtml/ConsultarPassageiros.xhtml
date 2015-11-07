@@ -14,40 +14,36 @@
 	<body>
 		<f:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
 		<div id="header">
-			<!-- 
+			 
 			<f:insert name="header">
-				Header area.  See comments below this line in the source.
-				< ! - -  include your header file or uncomment the include below and create header.xhtml in this directory - - >
-				< ! - - <f:include src="header.xhtml"/> - - >
+				Consulta ao Cadastro de Passageiros
 			</f:insert>
-			 -->
 		</div>
 		
 		
 		<div id="content">
-			<f:insert name="content">
-				Content area.  See comments below this line in the source.
-				<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
-			  	<!-- <div> -->
-				<!-- <f:include src="content.xhtml"/> -->  
-				<!-- </div> -->
-			</f:insert>
-			
-			<h:dataTable value="#{passageiroManagedBean.colecaoPassageiros}" var="passageiro" border="1">
+			<h:dataTable
+				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}" 
+				value="#{passageiroManagedBean.colecaoPassageiros}" 
+				var="passageiro" 
+				border="1">
 				<h:column>#{passageiro.CPF}</h:column>
 				<h:column>#{passageiro.nome}</h:column>
 				<h:column>#{passageiro.EMail}</h:column>
 				<h:column>#{passageiro.dataNascimento}</h:column>
 				<h:column>#{passageiro.isPortadorNecessidadesEspeciais}</h:column>
 			</h:dataTable>
+			<h:outputText 
+				rendered="#{empty passageiroManagedBean.colecaoPassageiros}"
+				value="Nenhum registro encontrado"  
+			/>
 		</div>
 		
 		<div id="footer">
-			<f:insert name="footer">
-				Footer area.  See comments below this line in the source.
-				<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
-				<!--<f:include src="footer.xhtml"/>  -->
-		  </f:insert>
+			<br />
+			<br />
+			<br />
+			<h:button value="Voltar" outcome="cadastro" />
 		</div>
 	</body>
 </html>
