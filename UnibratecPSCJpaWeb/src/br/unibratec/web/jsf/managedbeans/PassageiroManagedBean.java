@@ -26,7 +26,7 @@ public class PassageiroManagedBean {
 	}
 	
 	public Collection<Passageiro> getColecaoPassageiros() {
-		if ( this.aColecaoPassageiros == null  /*!BibliotecaFuncoes.isColecaoValida(this.aColecaoPassageiros)*/ ) {
+		if ( this.aColecaoPassageiros == null ) {
 			this.consultarGeral();
 		}
 		return aColecaoPassageiros;
@@ -35,17 +35,26 @@ public class PassageiroManagedBean {
 		this.aColecaoPassageiros = pColecaoPassageiros;
 	}
 	
-	public void inserir() {
+	public String inserir() {
+		String resultado = "";
+		
 		if ( this.aPassageiro != null && this.aPassageiro.getChavePrimaria() != null ) {
 			IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 			fachada.inserir(this.aPassageiro);
+			resultado = "inserido";
 		}
+		
+		return resultado;
 	}
 	
-	public Collection<Passageiro> consultarGeral() {
+	public String consultarGeral() {
+		String resultado = "";
+		
 		IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 		this.aColecaoPassageiros = fachada.consultar();
-		return this.aColecaoPassageiros;
+		
+		resultado = "consultar";
+		return resultado;
 	}
 	
 }
