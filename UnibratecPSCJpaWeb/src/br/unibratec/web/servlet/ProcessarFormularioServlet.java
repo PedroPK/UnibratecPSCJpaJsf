@@ -74,7 +74,7 @@ public class ProcessarFormularioServlet extends HttpServlet {
 	
 	private void redirecionar_ConsultarPassageirosJSP(HttpServletRequest pRequest, HttpServletResponse pResponse)
 	throws ServletException, IOException {
-		redirecionarJSP(pRequest, pResponse, JSP_CONSULTAR_PASSAGEIROS_JSTL);
+		redirecionarJSP(pRequest, pResponse, JSP_CONSULTAR_PASSAGEIROS_SCRIPTLETS);
 	}
 
 	private void redirecionarJSP(HttpServletRequest pRequest, HttpServletResponse pResponse, String pArquivoJSP)
