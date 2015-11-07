@@ -19,8 +19,8 @@
 				tituloTela = "Título Padrão";
 			}
 		%>
-		<title>Unibratec - PSC - ${NM_REQ_PARAMETRO_TITULO_TELA} </title>
-		<!-- title>Unibratec - PSC - <%=tituloTela%> </title -->
+		<!-- title>Unibratec - PSC - ${NM_REQ_PARAMETRO_TITULO_TELA} </title>  -->
+		<title>Unibratec - PSC - <%=tituloTela%> </title>
 		
 		<script type="text/javascript">
 			function salvar() {
