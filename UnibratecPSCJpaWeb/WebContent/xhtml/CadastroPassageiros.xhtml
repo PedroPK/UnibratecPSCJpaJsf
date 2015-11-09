@@ -12,7 +12,7 @@
 	<h:body>
 		<h:form>
 			<h:panelGrid columns="2">
-				CPF: <h:inputText value="#{passageiroManagedBean.passageiro.CPF}" />
+				CPF: <h:inputText rendered="true" required="false" value="#{passageiroManagedBean.passageiro.CPF}" />
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
 				Data de Nascimento: 
