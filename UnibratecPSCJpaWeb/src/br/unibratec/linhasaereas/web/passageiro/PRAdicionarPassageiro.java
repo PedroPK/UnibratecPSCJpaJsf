@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
 import br.unibratec.linhasaereas.util.passageiro.ConstantesPassageiro;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 
 /**
  * Servlet implementation class AdicionarPassageiro
@@ -41,10 +41,10 @@ public class PRAdicionarPassageiro extends HttpServlet {
 		
 		StringBuffer sb;
 		if ( 
-				BibliotecaFuncoes.isStringValida(nome)				&&
-				BibliotecaFuncoes.isStringValida(email)				&&
-				BibliotecaFuncoes.isStringValida(cpf)				&&
-				BibliotecaFuncoes.isStringValida(dataNascimento)		
+				BibliotecaMetodos.isStringValida(nome)				&&
+				BibliotecaMetodos.isStringValida(email)				&&
+				BibliotecaMetodos.isStringValida(cpf)				&&
+				BibliotecaMetodos.isStringValida(dataNascimento)		
 		) {
 			IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 			fachada.inserirPassageiro(

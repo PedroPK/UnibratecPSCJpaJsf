@@ -4,7 +4,7 @@ import br.unibratec.heranca.mappedsuperclass.entidades.AlunoHerancaMappedSupercl
 import br.unibratec.heranca.mappedsuperclass.entidades.ProfessorHerancaMappedSuperclass;
 import br.unibratec.heranca.mappedsuperclass.persistencia.HerancaMappedSuperclassDAO;
 import br.unibratec.heranca.mappedsuperclass.persistencia.IHerancaMappedSuperclassDAO;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.ConstantesGerais;
 import br.unibratec.util.UtilJPA;
 
@@ -65,7 +65,7 @@ public class SubMainHerancaMappedSuperclass {
 		ProfessorHerancaMappedSuperclass professorHerancaMappedSuperclass1 = new ProfessorHerancaMappedSuperclass();
 		professorHerancaMappedSuperclass1.setCodigoProfessor(ConstantesGerais.UM);
 		professorHerancaMappedSuperclass1.setNome("Pedro Santos");
-		professorHerancaMappedSuperclass1.setDataContratacao(BibliotecaFuncoes.getData("06/08/2015"));
+		professorHerancaMappedSuperclass1.setDataContratacao(BibliotecaMetodos.getData("06/08/2015"));
 		
 		ProfessorHerancaMappedSuperclass ProfessorHerancaMappedSuperclass2 = new ProfessorHerancaMappedSuperclass();
 		ProfessorHerancaMappedSuperclass2.setCodigoProfessor(ConstantesGerais.DOIS);

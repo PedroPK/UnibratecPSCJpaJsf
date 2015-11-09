@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 
 import br.unibratec.heranca.mappedsuperclass.entidades.AlunoHerancaMappedSuperclass;
 import br.unibratec.heranca.mappedsuperclass.entidades.ProfessorHerancaMappedSuperclass;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class HerancaMappedSuperclassDAO implements IHerancaMappedSuperclassDAO {
@@ -65,7 +65,7 @@ public class HerancaMappedSuperclassDAO implements IHerancaMappedSuperclassDAO {
 
 	public AlunoHerancaMappedSuperclass consultarAluno(String pCPF) {
 		AlunoHerancaMappedSuperclass aluno = null;
-		if (	BibliotecaFuncoes.isStringValida( pCPF )	) {
+		if (	BibliotecaMetodos.isStringValida( pCPF )	) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			aluno = manager.find(AlunoHerancaMappedSuperclass.class, pCPF);
@@ -78,7 +78,7 @@ public class HerancaMappedSuperclassDAO implements IHerancaMappedSuperclassDAO {
 	
 	public AlunoHerancaMappedSuperclass getReferenciaAluno(String pCPF) {
 		AlunoHerancaMappedSuperclass aluno = null;
-		if (	BibliotecaFuncoes.isStringValida( pCPF )	) {
+		if (	BibliotecaMetodos.isStringValida( pCPF )	) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			aluno = manager.getReference(AlunoHerancaMappedSuperclass.class, pCPF);
@@ -106,7 +106,7 @@ public class HerancaMappedSuperclassDAO implements IHerancaMappedSuperclassDAO {
 
 	public ProfessorHerancaMappedSuperclass consultarProfessorHeranca(String pCdDisciplina) {
 		ProfessorHerancaMappedSuperclass disciplina = null;
-		if (	BibliotecaFuncoes.isStringValida( pCdDisciplina )		) {
+		if (	BibliotecaMetodos.isStringValida( pCdDisciplina )		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			disciplina = manager.find(ProfessorHerancaMappedSuperclass.class, pCdDisciplina);

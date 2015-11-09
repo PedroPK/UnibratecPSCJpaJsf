@@ -6,7 +6,7 @@ import java.util.Date;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.persistencia.IPassageiroDAO;
 import br.unibratec.linhasaereas.persistencia.PassageiroDAO;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 
 public class ControladorPassageiro implements IControladorPassageiro {
 	
@@ -19,15 +19,15 @@ public class ControladorPassageiro implements IControladorPassageiro {
 	) {
 		boolean isPortadorNecessidadesEspeciais = false;
 		if ( 
-				BibliotecaFuncoes.isStringValida(pIsPortadorNecessidadesEspeciais)		&&
+				BibliotecaMetodos.isStringValida(pIsPortadorNecessidadesEspeciais)		&&
 				pIsPortadorNecessidadesEspeciais.equalsIgnoreCase(Boolean.TRUE.toString())
 		) {
 			isPortadorNecessidadesEspeciais = true;
 		}
 		
 		Date dtNascimento = null;
-		if ( BibliotecaFuncoes.isDataValida(pDataNascimento) ) {
-			dtNascimento = BibliotecaFuncoes.getData(pDataNascimento);
+		if ( BibliotecaMetodos.isDataValida(pDataNascimento) ) {
+			dtNascimento = BibliotecaMetodos.getData(pDataNascimento);
 		}
 		
 		Passageiro passageiro = 

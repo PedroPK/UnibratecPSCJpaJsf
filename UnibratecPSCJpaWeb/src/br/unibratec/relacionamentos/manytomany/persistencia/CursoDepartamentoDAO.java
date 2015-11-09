@@ -5,7 +5,7 @@ import javax.persistence.EntityTransaction;
 
 import br.unibratec.relacionamentos.manytomany.entidades.Curso;
 import br.unibratec.relacionamentos.manytomany.entidades.Departamento;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class CursoDepartamentoDAO implements ICursoDepartamentoDAO {
@@ -64,7 +64,7 @@ public class CursoDepartamentoDAO implements ICursoDepartamentoDAO {
 	
 	@Override
 	public void consultarCurso(String pCdCurso) {
-		if (	BibliotecaFuncoes.isStringValida(pCdCurso)		) {
+		if (	BibliotecaMetodos.isStringValida(pCdCurso)		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			Curso c = manager.find(Curso.class, pCdCurso);
 			c.toString();
@@ -84,7 +84,7 @@ public class CursoDepartamentoDAO implements ICursoDepartamentoDAO {
 	
 	@Override
 	public void consultarDepartamento(String pCdDepartamento) {
-		if (	BibliotecaFuncoes.isStringValida(pCdDepartamento)		) {
+		if (	BibliotecaMetodos.isStringValida(pCdDepartamento)		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			Departamento d = manager.find(Departamento.class, pCdDepartamento);
 			d.toString();

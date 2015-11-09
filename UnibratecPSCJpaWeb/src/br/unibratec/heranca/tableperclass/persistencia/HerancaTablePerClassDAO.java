@@ -5,7 +5,7 @@ import javax.persistence.EntityTransaction;
 
 import br.unibratec.heranca.tableperclass.entidades.AlunoTablePerClass;
 import br.unibratec.heranca.tableperclass.entidades.ProfessorTablePerClass;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class HerancaTablePerClassDAO implements IHerancaTablePerClassDAO {
@@ -62,7 +62,7 @@ public class HerancaTablePerClassDAO implements IHerancaTablePerClassDAO {
 
 	public AlunoTablePerClass consultarAluno(String pCPF) {
 		AlunoTablePerClass aluno = null;
-		if (	BibliotecaFuncoes.isStringValida( pCPF )	) {
+		if (	BibliotecaMetodos.isStringValida( pCPF )	) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			aluno = manager.find(AlunoTablePerClass.class, pCPF);
@@ -90,7 +90,7 @@ public class HerancaTablePerClassDAO implements IHerancaTablePerClassDAO {
 
 	public ProfessorTablePerClass consultarProfessorHeranca(String pCdDisciplina) {
 		ProfessorTablePerClass disciplina = null;
-		if (	BibliotecaFuncoes.isStringValida( pCdDisciplina )		) {
+		if (	BibliotecaMetodos.isStringValida( pCdDisciplina )		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			disciplina = manager.find(ProfessorTablePerClass.class, pCdDisciplina);

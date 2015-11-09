@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import br.unibratec.heranca.joined.entidades.AlunoJoined;
 import br.unibratec.heranca.joined.entidades.ProfessorJoined;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class HerancaJoinedDAO implements IHerancaJoinedDAO {
@@ -76,7 +76,7 @@ public class HerancaJoinedDAO implements IHerancaJoinedDAO {
 
 	public AlunoJoined consultarAluno(String pCPF) {
 		AlunoJoined aluno = null;
-		if (	BibliotecaFuncoes.isStringValida( pCPF )	) {
+		if (	BibliotecaMetodos.isStringValida( pCPF )	) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			aluno = manager.find(AlunoJoined.class, pCPF);
@@ -104,7 +104,7 @@ public class HerancaJoinedDAO implements IHerancaJoinedDAO {
 
 	public ProfessorJoined consultarProfessorHeranca(String pCdDisciplina) {
 		ProfessorJoined disciplina = null;
-		if (	BibliotecaFuncoes.isStringValida( pCdDisciplina )		) {
+		if (	BibliotecaMetodos.isStringValida( pCdDisciplina )		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			disciplina = manager.find(ProfessorJoined.class, pCdDisciplina);

@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 
 @ManagedBean
 public class PassageiroManagedBean {

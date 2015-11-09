@@ -5,7 +5,7 @@ import javax.persistence.EntityTransaction;
 
 import br.unibratec.relacionamentos.manytoone.entidades.Autor;
 import br.unibratec.relacionamentos.manytoone.entidades.Monografia;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class MonografiaDAO implements IMonografiaDAO {
@@ -47,7 +47,7 @@ public class MonografiaDAO implements IMonografiaDAO {
 	
 	public void consultarAutor(Autor pAutor) {
 		if (	pAutor != null &&
-				BibliotecaFuncoes.isStringValida(pAutor.getCodigoAutor())
+				BibliotecaMetodos.isStringValida(pAutor.getCodigoAutor())
 		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
@@ -59,7 +59,7 @@ public class MonografiaDAO implements IMonografiaDAO {
 	}
 	
 	public void consultarAutor(String pCdAutor) {
-		if (	BibliotecaFuncoes.isStringValida(pCdAutor) 		) {
+		if (	BibliotecaMetodos.isStringValida(pCdAutor) 		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			Autor autor = manager.find(Autor.class, pCdAutor);

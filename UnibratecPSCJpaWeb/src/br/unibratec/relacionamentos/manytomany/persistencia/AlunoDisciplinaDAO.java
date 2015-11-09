@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import br.unibratec.relacionamentos.manytomany.entidades.Aluno;
 import br.unibratec.relacionamentos.manytomany.entidades.AlunoQtDisciplinas;
 import br.unibratec.relacionamentos.manytomany.entidades.Disciplina;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 import br.unibratec.util.UtilJPA;
 
 public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
@@ -54,7 +54,7 @@ public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
 	public Aluno consultarAluno(Aluno pAluno) {
 		Aluno aluno = pAluno;
 		if (	pAluno != null		&&
-				BibliotecaFuncoes.isStringValida( pAluno.getCpf() )
+				BibliotecaMetodos.isStringValida( pAluno.getCpf() )
 		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
@@ -68,7 +68,7 @@ public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
 
 	public Aluno consultarAluno(String pCPF) {
 		Aluno aluno = null;
-		if (	BibliotecaFuncoes.isStringValida( pCPF )	) {
+		if (	BibliotecaMetodos.isStringValida( pCPF )	) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			aluno = manager.find(Aluno.class, pCPF);
@@ -82,7 +82,7 @@ public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
 	public Disciplina consultarDisciplina(Disciplina pDisciplina) {
 		Disciplina disciplina = pDisciplina;
 		if (	pDisciplina != null		&&
-				BibliotecaFuncoes.isStringValida( pDisciplina.getCodigo() )
+				BibliotecaMetodos.isStringValida( pDisciplina.getCodigo() )
 		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
@@ -96,7 +96,7 @@ public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
 
 	public Disciplina consultarDisciplina(String pCdDisciplina) {
 		Disciplina disciplina = null;
-		if (	BibliotecaFuncoes.isStringValida( pCdDisciplina )		) {
+		if (	BibliotecaMetodos.isStringValida( pCdDisciplina )		) {
 			EntityManager manager = UtilJPA.getEntityManager();
 			
 			disciplina = manager.find(Disciplina.class, pCdDisciplina);
@@ -230,7 +230,7 @@ public class AlunoDisciplinaDAO implements IAlunoDisciplinaDAO {
 				Aluno.class);
 		
 		String regiaoCache = Aluno.ALUNO_REGIAO_CACHE_CONSULTA_PSC;
-		BibliotecaFuncoes.habilitarRegiaoCacheQuery(tqAluno, regiaoCache);
+		BibliotecaMetodos.habilitarRegiaoCacheQuery(tqAluno, regiaoCache);
 		
 		Collection<Aluno> alunosPSC = tqAluno.getResultList();
 		alunosPSC.toString();

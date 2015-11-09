@@ -4,14 +4,14 @@ import br.unibratec.relacionamentos.onetoone.entidades.DadosPessoais;
 import br.unibratec.relacionamentos.onetoone.entidades.Pessoa;
 import br.unibratec.relacionamentos.onetoone.persistencia.IPessoaDAO;
 import br.unibratec.relacionamentos.onetoone.persistencia.PessoaDAO;
-import br.unibratec.util.BibliotecaFuncoes;
+import br.unibratec.util.BibliotecaMetodos;
 
 public class ControladorOneToOne implements IControladorOneToOne {
 	
 	public void persistir(String pCPF, String pEndereco, String pNome, String pDtNascimento) {
 		Pessoa p = null;
-		if ( BibliotecaFuncoes.isStringValida(pCPF)		&&
-			 BibliotecaFuncoes.isStringValida(pEndereco)
+		if ( BibliotecaMetodos.isStringValida(pCPF)		&&
+			 BibliotecaMetodos.isStringValida(pEndereco)
 		) {
 			p = new Pessoa();
 			p.setCpf(pCPF);
@@ -19,12 +19,12 @@ public class ControladorOneToOne implements IControladorOneToOne {
 		}
 		
 		DadosPessoais dp = null;
-		if ( BibliotecaFuncoes.isStringValida(pCPF)		&&
-			 BibliotecaFuncoes.isDataValida(pDtNascimento)
+		if ( BibliotecaMetodos.isStringValida(pCPF)		&&
+			 BibliotecaMetodos.isDataValida(pDtNascimento)
 		) {
 			 dp = new DadosPessoais();
 			dp.setCpf(pCPF);
-			dp.setDataNascimento(BibliotecaFuncoes.getData(pDtNascimento));
+			dp.setDataNascimento(BibliotecaMetodos.getData(pDtNascimento));
 		}
 		
 		IPessoaDAO pessoaDAO = new PessoaDAO();
