@@ -17,13 +17,29 @@ import org.hibernate.service.internal.StandardServiceRegistryImpl;
 
 import br.unibratec.relacionamentos.manytomany.entidades.Aluno;
 
-public class BibliotecaFuncoes {
+public class BibliotecaMetodos {
 	
 	public static boolean isStringValida(String pString) {
 		boolean resposta = false;
 		
 		if ( pString != null && pString.trim().length() > 0 ) {
 			resposta = true;
+		}
+		
+		return resposta;
+	}
+	
+	public static boolean isObjetoValido(Object pObjeto) {
+		boolean resposta = false;
+		
+		if ( pObjeto != null ) {
+			if ( pObjeto instanceof String ) {
+				if ( isStringValida((String) pObjeto) ) {
+					resposta = true;
+				}
+			} else {
+				resposta = true;
+			}
 		}
 		
 		return resposta;
