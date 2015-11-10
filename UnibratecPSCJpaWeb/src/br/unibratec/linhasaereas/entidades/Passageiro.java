@@ -2,7 +2,6 @@ package br.unibratec.linhasaereas.entidades;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -11,6 +10,7 @@ import javax.persistence.TemporalType;
 
 import br.unibratec.entidades.Entidade;
 import br.unibratec.linhasaereas.persistencia.PassageiroDAO;
+import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
 
 @Entity
 @NamedQuery(
@@ -98,6 +98,14 @@ public class Passageiro implements Entidade {
 		return getCPF();
 	}
 	
-	
+	public boolean isChavePrimariaValida() {
+		boolean resposta = false;
+		
+		if ( isObjetoValido(this.getChavePrimaria()) ) {
+			resposta = true;
+		}
+		
+		return resposta;
+	}
 	
 }
