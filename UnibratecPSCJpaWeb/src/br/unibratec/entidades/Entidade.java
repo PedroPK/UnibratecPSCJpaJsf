@@ -4,4 +4,6 @@ public interface Entidade {
 	
 	public Object getChavePrimaria();
 	
+	public boolean isChavePrimariaValida();
+	
 }
