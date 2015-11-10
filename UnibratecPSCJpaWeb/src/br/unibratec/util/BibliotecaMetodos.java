@@ -32,12 +32,12 @@ public class BibliotecaMetodos {
 	public static boolean isObjetoValido(Object pObjeto) {
 		boolean resposta = false;
 		
-		if ( pObjeto != null ) {
-			if ( pObjeto instanceof String ) {
-				if ( isStringValida((String) pObjeto) ) {
-					resposta = true;
-				}
-			} else {
+		if ( pObjeto instanceof String ) {
+			if ( isStringValida((String) pObjeto) ) {
+				resposta = true;
+			}
+		} else {
+			if ( pObjeto != null ) {
 				resposta = true;
 			}
 		}
