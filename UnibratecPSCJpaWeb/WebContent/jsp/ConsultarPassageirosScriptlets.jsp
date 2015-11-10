@@ -1,7 +1,7 @@
+<%@page import="br.unibratec.util.BibliotecaMetodos"%>
 <%@page import="br.unibratec.web.servlet.ProcessarFormularioServlet"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
-<%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 <%@page import="br.unibratec.linhasaereas.entidades.Passageiro"%>
 <%@ page 
 	language="java" 
@@ -40,7 +40,7 @@
 						(Collection<Passageiro>) request.getAttribute(
 							ProcessarFormularioServlet.REQ_RESULTSET_PASSAGEIROS);
 					
-					if ( BibliotecaFuncoes.isColecaoValida(resultSet) ) {
+					if ( BibliotecaMetodos.isColecaoValida(resultSet) ) {
 						Iterator<Passageiro> iterator = resultSet.iterator();
 						
 						int indice = 0;

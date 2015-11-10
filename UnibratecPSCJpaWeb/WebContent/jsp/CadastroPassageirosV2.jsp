@@ -1,5 +1,5 @@
+<%@page import="br.unibratec.util.BibliotecaMetodos"%>
 <%@page import="br.unibratec.web.servlet.ProcessarFormularioServlet"%>
-<%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 
 <%@page 
 	language="java" 
@@ -15,7 +15,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<%
 			String tituloTela = (String) request.getAttribute(ProcessarFormularioServlet.REQ_PARAMETRO_TITULO_TELA);
-			if ( !BibliotecaFuncoes.isStringValida(tituloTela) ) {
+			if ( !BibliotecaMetodos.isStringValida(tituloTela) ) {
 				tituloTela = "Título Padrão";
 			}
 		%>

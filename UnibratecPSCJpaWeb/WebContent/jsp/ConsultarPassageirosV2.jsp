@@ -1,4 +1,3 @@
-<%@page import="br.unibratec.util.BibliotecaFuncoes"%>
 <%@page import="br.unibratec.linhasaereas.entidades.Passageiro"%>
 <%@ page 
 	language="java" 
