@@ -38,7 +38,7 @@ public class PassageiroManagedBean {
 	public String inserir() {
 		String resultado = "";
 		
-		if ( this.aPassageiro != null && this.aPassageiro.getChavePrimaria() != null ) {
+		if ( this.aPassageiro != null && this.aPassageiro.isChavePrimariaValida() ) {
 			IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 			fachada.inserir(this.aPassageiro);
 			resultado = "inserido";
@@ -48,12 +48,10 @@ public class PassageiroManagedBean {
 	}
 	
 	public String consultarGeral() {
-		String resultado = "";
-		
 		IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 		this.aColecaoPassageiros = fachada.consultar();
 		
-		resultado = "consultar";
+		String resultado = "consultar";
 		return resultado;
 	}
 	
