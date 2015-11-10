@@ -16,7 +16,7 @@ import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
 import br.unibratec.linhasaereas.util.passageiro.ConstantesPassageiro;
-import br.unibratec.util.BibliotecaMetodos;
+import static br.unibratec.util.BibliotecaMetodos.isStringValida;
 import br.unibratec.util.UtilJPA;
 
 @WebServlet("/ProcessarFormulario")
@@ -103,10 +103,10 @@ public class ProcessarFormularioServlet extends HttpServlet {
 				String isPortadorNecessidadesEspeciais	= pRequest.getParameter(ConstantesPassageiro.ID_REQ_IsPortadorNecessidadesEspeciais);
 				
 				if ( 
-						BibliotecaMetodos.isStringValida(nome)				&&
-						BibliotecaMetodos.isStringValida(email)				&&
-						BibliotecaMetodos.isStringValida(cpf)				&&
-						BibliotecaMetodos.isStringValida(dataNascimento)		
+						isStringValida(nome)				&&
+						isStringValida(email)				&&
+						isStringValida(cpf)				&&
+						isStringValida(dataNascimento)		
 				) {
 					IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 					fachada.inserirPassageiro(
