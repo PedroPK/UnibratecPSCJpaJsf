@@ -21,7 +21,15 @@
 						
 					</h:inputText>
 				Necessidades Especiais?
-					<h:selectBooleanCheckbox value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}" />
+					<h:selectBooleanCheckbox value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
+						<c:ajax render="deficiente" />
+					</h:selectBooleanCheckbox>
+				Painel oculto	<h:panelGroup id="deficiente">
+									<h:panelGroup rendered="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
+										Faça o upload de seu documento:
+										<h:inputFile value="#{passageiroManagedBean.arquivoUpload}" />
+									</h:panelGroup>
+								</h:panelGroup>
 					<!-- h:selectOneRadio value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:selectItem itemValue="True" itemLabel="Sim" />
 						<c:selectItem itemValue="False" itemLabel="Não" />
@@ -54,6 +62,15 @@
 										itemLabel="#{mEscolaridade.descricao}"
 									/>
 								</h:selectManyMenu>
+				SelectManyListbox:	<h:selectManyListbox value="#{passageiroManagedBean.niveisEscolares}">
+										<c:selectItem itemLabel=" - - Selecione uma opção - -" />
+										<c:selectItems 
+											value="#{passageiroManagedBean.escolaridades}"
+											var="vEscolaridade"
+											itemValue="#{vEscolaridade}"
+											itemLabel="#{vEscolaridade.descricao}"
+										/>
+									</h:selectManyListbox>
 				RadioButtons:	<h:selectOneRadio value="#{passageiroManagedBean.classe}" layout="lineDirection">
 									<c:selectItems 
 										value="#{passageiroManagedBean.classes}"
@@ -62,6 +79,14 @@
 										itemLabel="#{rClasse.descricao}"
 									/>
 								</h:selectOneRadio>
+				SelectManyCheckbox		<h:selectManyCheckbox value="#{passageiroManagedBean.listaClasses}" layout="pageDirection">
+											<c:selectItems 
+												value="#{passageiroManagedBean.classes}"
+												var="rClasse"
+												itemValue="#{rClasse}"
+												itemLabel="#{rClasse.descricao}"
+											/>
+										</h:selectManyCheckbox>
 			</h:panelGrid>
 			<br/>
 			<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
