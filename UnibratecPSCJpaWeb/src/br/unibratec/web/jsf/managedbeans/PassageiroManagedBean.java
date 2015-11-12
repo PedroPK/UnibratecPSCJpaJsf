@@ -1,19 +1,24 @@
 package br.unibratec.web.jsf.managedbeans;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.PhaseId;
 
+import br.unibratec.Escolaridade;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
-import br.unibratec.util.BibliotecaMetodos;
 
 @ManagedBean
 public class PassageiroManagedBean {
 	
 	private Passageiro aPassageiro;
 	private Collection<Passageiro> aColecaoPassageiros;
+	
+	private List<PhaseId> aFases = PhaseId.VALUES;
+	private Escolaridade aEscolaridade;
 	
 	public Passageiro getPassageiro() {
 		if ( this.aPassageiro == null ) {
@@ -53,6 +58,22 @@ public class PassageiroManagedBean {
 		
 		String resultado = "consultar";
 		return resultado;
+	}
+	
+	public List<PhaseId> getFases() {
+		return aFases;
+	}
+	public void setFases(List<PhaseId> fases) {
+		this.aFases = fases;
+	}
+	public Escolaridade getEscolaridade() {
+		return aEscolaridade;
+	}
+	public Escolaridade[] getEscolaridades() {
+		return Escolaridade.values();
+	}
+	public void setEscolaridade(Escolaridade aEscolaridade) {
+		this.aEscolaridade = aEscolaridade;
 	}
 	
 }

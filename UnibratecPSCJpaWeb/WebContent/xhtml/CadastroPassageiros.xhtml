@@ -12,19 +12,33 @@
 	<h:body>
 		<h:form>
 			<h:panelGrid columns="2">
-				CPF: <h:inputText rendered="true" required="false" value="#{passageiroManagedBean.passageiro.CPF}" />
+				CPF:	<h:inputText size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" >
+						</h:inputText>
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
 				Data de Nascimento: 
 					<h:inputText value="#{passageiroManagedBean.passageiro.dataNascimento}" >
 						
 					</h:inputText>
-				É portador de Necessidades Especiais?
-					<h:selectOneRadio value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
+				Necessidades Especiais?
+					<h:selectBooleanCheckbox value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}" />
+					<!-- h:selectOneRadio value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:selectItem itemValue="True" itemLabel="Sim" />
 						<c:selectItem itemValue="False" itemLabel="Não" />
-					</h:selectOneRadio>
+					</h:selectOneRadio-->
+				TextArea: <h:inputTextarea rows="2" cols="18"/>
+				Senha: <h:inputSecret size="20" maxlength="20"/>
+				SelectOneMenu:	<h:selectOneMenu value="#{passageiroManagedBean.escolaridade}">
+									<c:selectItem itemLabel=" -- Selecione uma opção --" />
+									<c:selectItems 
+										value="#{passageiroManagedBean.escolaridades}"
+										var="vEscolaridade"
+										itemValue="#{vEscolaridade}"
+										itemLabel="#{vEscolaridade.descricao}"
+									/>
+								</h:selectOneMenu>
 			</h:panelGrid>
+			<br/>
 			<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
 			<h:commandButton value="Consultar" action="#{passageiroManagedBean.consultarGeral}" />
 		</h:form>
