@@ -12,8 +12,9 @@
 	<h:body>
 		<h:form id="formularioPSC" prependId="false">
 			<h:panelGrid columns="2">
-				CPF:	<h:inputText size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" >
-						</h:inputText>
+				<h:outputLabel value="CPF" for="cpf" title="Cadastro de Pessoa Física" />
+				<h:inputText id="cpf" size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" />
+				
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
 				Data de Nascimento: 
