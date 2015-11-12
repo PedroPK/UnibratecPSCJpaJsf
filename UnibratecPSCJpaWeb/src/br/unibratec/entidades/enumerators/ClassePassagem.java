@@ -2,9 +2,9 @@ package br.unibratec.entidades.enumerators;
 
 public enum ClassePassagem {
 	
-	ECONOMICA ("Classe EconÃ´mica"),
+	ECONOMICA ("Classe Econômica"),
 	EXECUTIVA ("Classe Executiva"),
-	PRIMEIRA_CLASSE ("1Âª Classe");
+	PRIMEIRA_CLASSE ("1ª Classe");
 	
 	private String aDescricao;
 	
