@@ -1,5 +1,8 @@
 package br.unibratec.linhasaereas.entidades;
 
+import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,7 +13,6 @@ import javax.persistence.TemporalType;
 
 import br.unibratec.entidades.Entidade;
 import br.unibratec.linhasaereas.persistencia.PassageiroDAO;
-import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
 
 @Entity
 @NamedQuery(
@@ -41,6 +43,8 @@ public class Passageiro implements Entidade {
 	)
 	private String testeColuna;*/
 	
+	private BigDecimal aCreditoPromocoes;
+	
 	private boolean		aIsPortadorNecessidadesEspeciais;
 	
 	public Passageiro() {}
@@ -56,6 +60,7 @@ public class Passageiro implements Entidade {
 		this.aEMail = aEMail;
 		this.aDataNascimento = aDataNascimento;
 		this.aIsPortadorNecessidadesEspeciais = aIsPortadorNecessidadesEspeciais;
+		this.aCreditoPromocoes = new BigDecimal(100.00);
 	}
 	
 	public String getCPF() {
@@ -106,6 +111,12 @@ public class Passageiro implements Entidade {
 		}
 		
 		return resposta;
+	}
+	public BigDecimal getCreditoPromocoes() {
+		return aCreditoPromocoes;
+	}
+	public void setCreditoPromocoes(BigDecimal pCreditoPromocoes) {
+		this.aCreditoPromocoes = pCreditoPromocoes;
 	}
 	
 }
