@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.PhaseId;
+import javax.servlet.http.Part;
 
 import br.unibratec.entidades.enumerators.ClassePassagem;
 import br.unibratec.entidades.enumerators.Escolaridade;
@@ -19,9 +20,14 @@ public class PassageiroManagedBean {
 	private Collection<Passageiro> aColecaoPassageiros;
 	
 	private List<PhaseId> aFases = PhaseId.VALUES;
+	
 	private Escolaridade aEscolaridade;
 	private Collection<Escolaridade> aNiveisEscolares;
+	
 	private ClassePassagem aClasse;
+	private Collection<ClassePassagem> aListaClasses;
+	
+	private Part aArquivoUpload;
 	
 	public Passageiro getPassageiro() {
 		if ( this.aPassageiro == null ) {
@@ -66,18 +72,20 @@ public class PassageiroManagedBean {
 	public List<PhaseId> getFases() {
 		return aFases;
 	}
-	public void setFases(List<PhaseId> fases) {
-		this.aFases = fases;
+	public void setFases(List<PhaseId> pFases) {
+		this.aFases = pFases;
 	}
+	
 	public Escolaridade getEscolaridade() {
 		return aEscolaridade;
 	}
 	public Escolaridade[] getEscolaridades() {
 		return Escolaridade.values();
 	}
-	public void setEscolaridade(Escolaridade aEscolaridade) {
-		this.aEscolaridade = aEscolaridade;
+	public void setEscolaridade(Escolaridade pEscolaridade) {
+		this.aEscolaridade = pEscolaridade;
 	}
+	
 	public ClassePassagem getClasse() {
 		return aClasse;
 	}
@@ -93,6 +101,19 @@ public class PassageiroManagedBean {
 	}
 	public void setNiveisEscolares(Collection<Escolaridade> pNiveisEscolares) {
 		this.aNiveisEscolares = pNiveisEscolares;
+	}
+	
+	public Collection<ClassePassagem> getListaClasses() {
+		return aListaClasses;
+	}
+	public void setListaClasses(Collection<ClassePassagem> pListaClasses) {
+		this.aListaClasses = pListaClasses;
+	}
+	public Part getArquivoUpload() {
+		return aArquivoUpload;
+	}
+	public void setArquivoUpload(Part pArquivoUpload) {
+		this.aArquivoUpload = pArquivoUpload;
 	}
 	
 }
