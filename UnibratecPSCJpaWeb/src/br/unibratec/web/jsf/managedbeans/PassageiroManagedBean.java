@@ -6,7 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.PhaseId;
 
-import br.unibratec.Escolaridade;
+import br.unibratec.entidades.enumerators.ClassePassagem;
+import br.unibratec.entidades.enumerators.Escolaridade;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
@@ -19,6 +20,8 @@ public class PassageiroManagedBean {
 	
 	private List<PhaseId> aFases = PhaseId.VALUES;
 	private Escolaridade aEscolaridade;
+	private Collection<Escolaridade> aNiveisEscolares;
+	private ClassePassagem aClasse;
 	
 	public Passageiro getPassageiro() {
 		if ( this.aPassageiro == null ) {
@@ -74,6 +77,22 @@ public class PassageiroManagedBean {
 	}
 	public void setEscolaridade(Escolaridade aEscolaridade) {
 		this.aEscolaridade = aEscolaridade;
+	}
+	public ClassePassagem getClasse() {
+		return aClasse;
+	}
+	public ClassePassagem[] getClasses() {
+		return ClassePassagem.values();
+	}
+	public void setClasse(ClassePassagem classe) {
+		this.aClasse = classe;
+	}
+	
+	public Collection<Escolaridade> getNiveisEscolares() {
+		return aNiveisEscolares;
+	}
+	public void setNiveisEscolares(Collection<Escolaridade> pNiveisEscolares) {
+		this.aNiveisEscolares = pNiveisEscolares;
 	}
 	
 }

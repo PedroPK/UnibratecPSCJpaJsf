@@ -37,6 +37,31 @@
 										itemLabel="#{vEscolaridade.descricao}"
 									/>
 								</h:selectOneMenu>
+				SelectOneListbox:	<h:selectOneListbox value="#{passageiroManagedBean.escolaridade}">
+										<c:selectItem itemLabel=" - - Selecione uma opção - -" />
+										<c:selectItems 
+											value="#{passageiroManagedBean.escolaridades}"
+											var="vEscolaridade"
+											itemValue="#{vEscolaridade}"
+											itemLabel="#{vEscolaridade.descricao}"
+										/>
+									</h:selectOneListbox>
+				SelectManyMenu:	<h:selectManyMenu value="#{passageiroManagedBean.niveisEscolares}" >
+									<c:selectItems 
+										value="#{passageiroManagedBean.escolaridades}"
+										var="mEscolaridade"
+										itemValue="#{mEscolaridade}"
+										itemLabel="#{mEscolaridade.descricao}"
+									/>
+								</h:selectManyMenu>
+				RadioButtons:	<h:selectOneRadio value="#{passageiroManagedBean.classe}" layout="lineDirection">
+									<c:selectItems 
+										value="#{passageiroManagedBean.classes}"
+										var="rClasse"
+										itemValue="#{rClasse}"
+										itemLabel="#{rClasse.descricao}"
+									/>
+								</h:selectOneRadio>
 			</h:panelGrid>
 			<br/>
 			<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
