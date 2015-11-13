@@ -46,6 +46,14 @@
 					</h:outputText>
 				</h:column>
 				<h:column>#{passageiro.isPortadorNecessidadesEspeciais}</h:column>
+				<h:column>
+					<h:outputText value="#{passageiro.creditoPromocoes}">
+						<c:convertNumber 
+							type="currency" maxFractionDigits="3" minFractionDigits="2"
+							currencySymbol="R$" locale="pt_BR"
+						/>
+					</h:outputText>
+				</h:column>
 			</h:dataTable>
 			<h:outputText 
 				rendered="#{empty passageiroManagedBean.colecaoPassageiros}"
