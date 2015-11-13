@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.resultadoLinhaPar {
+	background-color: #FFF5EE
+}
+
+.resultadoLinhaImpar {
+	background-color: #F0FFFF;
+}
