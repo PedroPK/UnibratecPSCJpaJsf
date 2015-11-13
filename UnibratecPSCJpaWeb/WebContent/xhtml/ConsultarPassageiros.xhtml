@@ -10,6 +10,7 @@
 >
 	<head>
 		<title><f:insert name="title">Tela de Consulta ao cadastro de Passageiros</f:insert></title>
+		<link rel="Stylesheet" type="text/css" href="../css/estilos.css" />
 	</head>
 	<body>
 		<f:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
@@ -22,11 +23,20 @@
 		
 		
 		<div id="content">
+			<!-- f:repeat 
+				var="v"
+				varStatus="vs" 
+				value="#{passageiroManagedBean.colecaoPassageiros}"
+				
+			>
+				<h:outputText value="#{vs.index}"></h:outputText>
+				<br/>
+			</f:repeat -->
 			<h:dataTable
 				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}" 
 				value="#{passageiroManagedBean.colecaoPassageiros}" 
-				var="passageiro" 
-				border="1">
+				var="passageiro"		border="1"
+				rowClasses="resultadoLinhaPar, resultadoLinhaImpar">
 				<h:column>#{passageiro.CPF}</h:column>
 				<h:column>#{passageiro.nome}</h:column>
 				<h:column>#{passageiro.EMail}</h:column>
