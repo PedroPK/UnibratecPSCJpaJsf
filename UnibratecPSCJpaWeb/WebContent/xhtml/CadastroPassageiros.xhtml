@@ -16,29 +16,28 @@
 				<h:inputText id="cpf" size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" />
 				
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
+				
 				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
+				
 				Data de Nascimento: 
 					<h:inputText value="#{passageiroManagedBean.passageiro.dataNascimento}" >
-						
+						<c:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Recife"/>
 					</h:inputText>
 				Necessidades Especiais?
-					<h:selectBooleanCheckbox value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
+					<h:selectBooleanCheckbox  value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:ajax render="deficiente" />
 					</h:selectBooleanCheckbox>
+					
 				Painel oculto	<h:panelGroup id="deficiente">
 									<h:panelGroup rendered="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 										Faça o upload de seu documento:
 										<h:inputFile value="#{passageiroManagedBean.arquivoUpload}" />
 									</h:panelGroup>
 								</h:panelGroup>
-					<!-- h:selectOneRadio value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
-						<c:selectItem itemValue="True" itemLabel="Sim" />
-						<c:selectItem itemValue="False" itemLabel="Não" />
-					</h:selectOneRadio-->
 				TextArea: <h:inputTextarea rows="2" cols="18"/>
 				Senha: <h:inputSecret size="20" maxlength="20"/>
 				SelectOneMenu:	<h:selectOneMenu value="#{passageiroManagedBean.escolaridade}">
-									<c:selectItem itemLabel=" -- Selecione uma opção --" />
+									<c:selectItem itemLabel=" - - Selecione uma opção - -" />
 									<c:selectItems 
 										value="#{passageiroManagedBean.escolaridades}"
 										var="vEscolaridade"
