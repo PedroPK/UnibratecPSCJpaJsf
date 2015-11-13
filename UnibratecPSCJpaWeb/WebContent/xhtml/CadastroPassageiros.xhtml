@@ -10,7 +10,7 @@
 		<title>Cadastro de Passageiros em JSF</title>
 	</h:head>
 	<h:body>
-		<h:form id="formularioPSC" prependId="false">
+		<h:form id="formularioPSC" prependId="false" enctype="multipart/form-data">
 			<h:panelGrid columns="2">
 				<h:outputLabel value="CPF" for="cpf" title="Cadastro de Pessoa Física" />
 				<h:inputText id="cpf" size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" />
@@ -30,10 +30,11 @@
 					
 				Painel oculto	<h:panelGroup id="deficiente">
 									<h:panelGroup rendered="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
-										Faça o upload de seu documento:
-										<h:inputFile value="#{passageiroManagedBean.arquivoUpload}" />
+										<h:outputText value="Now you See Me!"/>
 									</h:panelGroup>
 								</h:panelGroup>
+				Faça o upload de seu documento:
+					<h:inputFile value="#{passageiroManagedBean.arquivoUpload}" />
 				TextArea: <h:inputTextarea rows="2" cols="18"/>
 				Senha: <h:inputSecret size="20" maxlength="20"/>
 				SelectOneMenu:	<h:selectOneMenu value="#{passageiroManagedBean.escolaridade}">
