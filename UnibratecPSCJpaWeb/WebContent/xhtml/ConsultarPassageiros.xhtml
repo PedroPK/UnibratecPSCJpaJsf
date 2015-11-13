@@ -30,7 +30,11 @@
 				<h:column>#{passageiro.CPF}</h:column>
 				<h:column>#{passageiro.nome}</h:column>
 				<h:column>#{passageiro.EMail}</h:column>
-				<h:column>#{passageiro.dataNascimento}</h:column>
+				<h:column>
+					<h:outputText value="#{passageiro.dataNascimento}">
+						<c:convertDateTime type="date" />
+					</h:outputText>
+				</h:column>
 				<h:column>#{passageiro.isPortadorNecessidadesEspeciais}</h:column>
 			</h:dataTable>
 			<h:outputText 
