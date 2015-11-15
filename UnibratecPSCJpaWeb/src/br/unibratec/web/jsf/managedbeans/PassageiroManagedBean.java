@@ -1,9 +1,11 @@
 package br.unibratec.web.jsf.managedbeans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.event.PhaseId;
 import javax.servlet.http.Part;
 
@@ -14,6 +16,7 @@ import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
 
 @ManagedBean
+@SessionScoped
 public class PassageiroManagedBean {
 	
 	private Passageiro aPassageiro;
@@ -77,6 +80,9 @@ public class PassageiroManagedBean {
 	}
 	
 	public Escolaridade getEscolaridade() {
+		if ( this.aEscolaridade == null ) {
+			this.aEscolaridade = Escolaridade.ANALFABETO;
+		}
 		return aEscolaridade;
 	}
 	public Escolaridade[] getEscolaridades() {
@@ -87,6 +93,9 @@ public class PassageiroManagedBean {
 	}
 	
 	public ClassePassagem getClasse() {
+		if ( this.aClasse == null ) {
+			this.aClasse = ClassePassagem.ECONOMICA;
+		}
 		return aClasse;
 	}
 	public ClassePassagem[] getClasses() {
@@ -97,6 +106,9 @@ public class PassageiroManagedBean {
 	}
 	
 	public Collection<Escolaridade> getNiveisEscolares() {
+		if ( this.aNiveisEscolares == null ) {
+			this.aNiveisEscolares = new ArrayList<Escolaridade>();
+		}
 		return aNiveisEscolares;
 	}
 	public void setNiveisEscolares(Collection<Escolaridade> pNiveisEscolares) {
@@ -104,6 +116,9 @@ public class PassageiroManagedBean {
 	}
 	
 	public Collection<ClassePassagem> getListaClasses() {
+		if ( this.aListaClasses == null ) {
+			this.aListaClasses = new ArrayList<ClassePassagem>();
+		}
 		return aListaClasses;
 	}
 	public void setListaClasses(Collection<ClassePassagem> pListaClasses) {
