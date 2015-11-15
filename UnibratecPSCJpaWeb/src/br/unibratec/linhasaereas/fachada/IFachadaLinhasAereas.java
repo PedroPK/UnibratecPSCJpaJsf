@@ -15,7 +15,7 @@ public interface IFachadaLinhasAereas {
 	);
 	
 	public void inserir(Passageiro pPassageiro);
-	public void consultarPassageiro(Object pChavePrimariaPassageiro);
+	public Passageiro consultarPassageiro(Object pChavePrimariaPassageiro);
 	
 	public Collection<Passageiro> consultar();
 	

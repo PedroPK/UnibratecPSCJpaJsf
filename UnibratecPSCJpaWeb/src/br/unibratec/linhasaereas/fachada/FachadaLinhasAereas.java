@@ -24,9 +24,10 @@ public class FachadaLinhasAereas implements IFachadaLinhasAereas {
 		controladorPassageiro.inserir(pPassageiro);
 	}
 	
-	public void consultarPassageiro(Object pChavePrimariaPassageiro) {
+	public Passageiro consultarPassageiro(Object pChavePrimariaPassageiro) {
 		IControladorPassageiro controladorPassageiro = new ControladorPassageiro();
-		controladorPassageiro.consultar(pChavePrimariaPassageiro);
+		Passageiro passageiro = controladorPassageiro.consultar(pChavePrimariaPassageiro);
+		return passageiro;
 	}
 	
 	public Collection<Passageiro> consultar() {
