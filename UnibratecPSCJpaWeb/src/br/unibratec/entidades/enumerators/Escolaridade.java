@@ -3,17 +3,17 @@ package br.unibratec.entidades.enumerators;
 public enum Escolaridade {
 	
 	ANALFABETO ("Analfabeto"),
-	PRE_ESCOLAR ("Pré Escolar"),
+	PRE_ESCOLAR ("PrÃ© Escolar"),
 	FUNDAMENTAL ("Fundamental"),
-	MEDIO ("Ensino Médio"),
-	TECNICO ("Curso Técnico"),
+	MEDIO ("Ensino MÃ©dio"),
+	TECNICO ("Curso TÃ©cnico"),
 	SUPERIOR_INCOMPLETO ("Curso Superior Incompleto"),
 	SUPERIOR_COMPLETO ("Curso Superior Completo"),
-	POS_GRADUACAO ("Pós-Graduação"),
+	POS_GRADUACAO ("PÃ³s-GraduaÃ§Ã£o"),
 	MBA ("MBA"),
 	MESTRADO ("Mestrado"),
 	DOUTORADO ("Doutorado"),
-	POS_DOUTORADO ("Pós-Doutorado");
+	POS_DOUTORADO ("PÃ³s-Doutorado");
 	
 	private String aDescricao;
 	
