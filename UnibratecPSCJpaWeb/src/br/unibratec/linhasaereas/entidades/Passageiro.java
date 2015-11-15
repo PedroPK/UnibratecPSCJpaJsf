@@ -47,7 +47,9 @@ public class Passageiro implements Entidade {
 	
 	private boolean		aIsPortadorNecessidadesEspeciais;
 	
-	public Passageiro() {}
+	public Passageiro() {
+		this.aCreditoPromocoes = new BigDecimal(1000.00);
+	}
 	public Passageiro(
 		String		aNome,
 		String		aCPF, 
@@ -60,7 +62,6 @@ public class Passageiro implements Entidade {
 		this.aEMail = aEMail;
 		this.aDataNascimento = aDataNascimento;
 		this.aIsPortadorNecessidadesEspeciais = aIsPortadorNecessidadesEspeciais;
-		this.aCreditoPromocoes = new BigDecimal(100.00);
 	}
 	
 	public String getCPF() {
