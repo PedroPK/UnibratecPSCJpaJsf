@@ -7,6 +7,7 @@
 		xmlns:f="http://xmlns.jcp.org/jsf/facelets"
 		xmlns:h="http://xmlns.jcp.org/jsf/html"
 		xmlns:c="http://xmlns.jcp.org/jsf/core"
+		xmlns:p="http://primefaces.org/ui"
 >
 	<head>
 		<title><f:insert name="title">Tela de Consulta ao cadastro de Passageiros</f:insert></title>
@@ -17,11 +18,9 @@
 		<div id="header">
 			 
 			<f:insert name="header">
-				Consulta ao Cadastro de Passageiros
+				PrimeFaces - Consulta ao Cadastro de Passageiros
 			</f:insert>
 		</div>
-		
-		
 		<div id="content">
 			<!-- f:repeat 
 				var="v"
@@ -32,12 +31,53 @@
 				<h:outputText value="#{vs.index}"></h:outputText>
 				<br/>
 			</f:repeat -->
+			<p:dataTable
+				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}"
+				value="#{passageiroManagedBean.colecaoPassageiros}"
+				var="pass" rowStyleClass="#{index % 2 == 0 ? 'resultadoLinhaPar' : 'resultadoLinhaImpar' }"
+				rowIndexVar="index"
+				style="border-style: groove;"
+			>
+				<p:column headerText="CPF">
+					#{pass.CPF}
+				</p:column>
+				<p:column headerText="Nome">
+					#{pass.nome}
+				</p:column>
+				<p:column headerText="e-Mail">
+					#{pass.EMail}
+				</p:column>
+				<p:column headerText="Data de Nascimento">
+					<h:outputText value="#{pass.dataNascimento}">
+						<c:convertDateTime type="date" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Necessidades Especiais">
+					#{pass.isPortadorNecessidadesEspeciais}
+				</p:column>
+				<p:column headerText="Crédito">
+					<h:outputText value="#{pass.creditoPromocoes}">
+						<c:convertNumber 
+							type="currency" maxFractionDigits="3" minFractionDigits="2"
+							currencySymbol="R$" locale="pt_BR"
+						/>
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</div>
+		<div id="headerSecond">
+			 
+			<f:insert name="header">
+				JSF Padrão - Consulta ao Cadastro de Passageiros
+			</f:insert>
+		</div>
+		<div>
 			<h:dataTable
 				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}" 
 				value="#{passageiroManagedBean.colecaoPassageiros}" 
 				var="passageiro"		border="1"
 				rowClasses="resultadoLinhaPar, resultadoLinhaImpar">
-				<h:column>#{passageiro.CPF}</h:column>
+				<h:column >#{passageiro.CPF}</h:column>
 				<h:column>#{passageiro.nome}</h:column>
 				<h:column>#{passageiro.EMail}</h:column>
 				<h:column>
