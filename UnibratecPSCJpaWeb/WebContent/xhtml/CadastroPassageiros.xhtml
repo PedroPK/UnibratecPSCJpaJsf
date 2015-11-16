@@ -21,7 +21,9 @@
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				
 				e-Mail:		<h:inputText value="#{passageiroManagedBean.passageiro.EMail}">
+								<!-- 
 								<c:validateRegex pattern="([a-z]|[A-Z]|\d+)[@]([a-z]|[A-Z]+)[\.]([a-z]|[A-Z]+)" />
+								-->
 							</h:inputText>
 				
 				Data de Nascimento: 
@@ -42,6 +44,7 @@
 								</h:panelGroup>
 				Faça o upload de seu documento:
 					<h:inputFile value="#{passageiroManagedBean.arquivoUpload}" />
+				<!-- 
 				TextArea: <h:inputTextarea rows="2" cols="18"/>
 				Senha: <h:inputSecret size="20" maxlength="20"/>
 				SelectOneMenu:	<h:selectOneMenu value="#{passageiroManagedBean.escolaridade}">
@@ -87,6 +90,7 @@
 										itemLabel="#{rClasse.descricao}"
 									/>
 								</h:selectOneRadio>
+								
 				SelectManyCheckbox		<h:selectManyCheckbox value="#{passageiroManagedBean.listaClasses}" layout="pageDirection">
 											<c:selectItems 
 												value="#{passageiroManagedBean.classes}"
@@ -95,6 +99,7 @@
 												itemLabel="#{rClasse.descricao}"
 											/>
 										</h:selectManyCheckbox>
+				-->
 			</h:panelGrid>
 			<br/>
 		</h:form>
