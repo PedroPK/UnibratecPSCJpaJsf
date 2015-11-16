@@ -120,6 +120,12 @@ public class BibliotecaMetodosTest {
 		
 		cpfInvalido = "123.456,789-04";
 		assertFalse(isCPFvalido(cpfInvalido));
+		
+		cpfInvalido = null;
+		assertFalse(isCPFvalido(cpfInvalido));
+		
+		cpfInvalido = "";
+		assertFalse(isCPFvalido(cpfInvalido));
 	}
 	
 }

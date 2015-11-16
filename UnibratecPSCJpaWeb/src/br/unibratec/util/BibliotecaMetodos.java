@@ -172,11 +172,12 @@ public class BibliotecaMetodos {
 	
 	public static boolean isCPFvalido(String pCPF) {
 		boolean resposta = false;
-		
-		Pattern padrao = Pattern.compile("[0-9]{3}[\\.][0-9]{3}[\\.][0-9]{3}[-][0-9]{2}");
-		Matcher matcher = padrao.matcher(pCPF);
-		
-		resposta = matcher.matches();
+		if ( isStringValida(pCPF) ) {
+			Pattern padrao = Pattern.compile("[0-9]{3}[\\.][0-9]{3}[\\.][0-9]{3}[-][0-9]{2}");
+			Matcher matcher = padrao.matcher(pCPF);
+			
+			resposta = matcher.matches();
+		}
 		
 		return resposta;
 	}
