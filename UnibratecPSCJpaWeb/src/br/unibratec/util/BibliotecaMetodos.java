@@ -182,4 +182,17 @@ public class BibliotecaMetodos {
 		return resposta;
 	}
 	
+	public static boolean isEmailValido( String pEmail ) {
+		boolean resposta = false;
+		
+		if ( isStringValida(pEmail) ) {
+			Pattern padrao = Pattern.compile("([a-z]|[A-Z]\\d{3})[@]([a-z]|[A-Z]{3})[\\.])([a-z]|[A-Z]{2})");
+			Matcher matcher = padrao.matcher(pEmail);
+			
+			resposta = matcher.matches();
+		}
+		
+		return resposta;
+	}
+	
 }

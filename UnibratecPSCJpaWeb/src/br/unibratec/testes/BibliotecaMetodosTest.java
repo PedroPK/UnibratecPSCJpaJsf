@@ -1,19 +1,15 @@
 package br.unibratec.testes;
 
-import org.junit.Test;
-
-import br.unibratec.util.BibliotecaMetodos;
-
+import static br.unibratec.util.BibliotecaMetodos.isCPFvalido;
+import static br.unibratec.util.BibliotecaMetodos.isEmailValido;
+import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
+import static br.unibratec.util.BibliotecaMetodos.isStringNao;
+import static br.unibratec.util.BibliotecaMetodos.isStringSim;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
-
-import static br.unibratec.util.BibliotecaMetodos.isCPFvalido;
-import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
-import static br.unibratec.util.BibliotecaMetodos.isStringNao;
-import static br.unibratec.util.BibliotecaMetodos.isStringSim;
+import org.junit.Test;
 
 public class BibliotecaMetodosTest {
 	
@@ -126,6 +122,12 @@ public class BibliotecaMetodosTest {
 		
 		cpfInvalido = "";
 		assertFalse(isCPFvalido(cpfInvalido));
+	}
+	
+	@Test
+	public void testarEmailsValidos() {
+		String emailValido = "pedropk@gmail.com";
+		assertTrue(isEmailValido(emailValido));
 	}
 	
 }
