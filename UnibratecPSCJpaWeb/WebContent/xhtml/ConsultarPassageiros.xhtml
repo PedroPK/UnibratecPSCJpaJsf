@@ -9,11 +9,11 @@
 		xmlns:c="http://xmlns.jcp.org/jsf/core"
 		xmlns:p="http://primefaces.org/ui"
 >
-	<head>
+	<h:head>
 		<title><f:insert name="title">Tela de Consulta ao cadastro de Passageiros</f:insert></title>
 		<link rel="Stylesheet" type="text/css" href="../css/estilos.css" />
-	</head>
-	<body>
+	</h:head>
+	<h:body>
 		<f:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
 		<div id="header">
 			 
@@ -34,9 +34,8 @@
 			<p:dataTable
 				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}"
 				value="#{passageiroManagedBean.colecaoPassageiros}"
-				var="pass" rowStyleClass="#{index % 2 == 0 ? 'resultadoLinhaPar' : 'resultadoLinhaImpar' }"
+				var="pass"
 				rowIndexVar="index"
-				style="border-style: groove;"
 			>
 				<p:column headerText="CPF">
 					#{pass.CPF}
@@ -49,7 +48,7 @@
 				</p:column>
 				<p:column headerText="Data de Nascimento">
 					<h:outputText value="#{pass.dataNascimento}">
-						<c:convertDateTime type="date" />
+						<c:convertDateTime type="date" dateStyle="long" locale="pt_BR" />
 					</h:outputText>
 				</p:column>
 				<p:column headerText="Necessidades Especiais">
@@ -65,7 +64,7 @@
 				</p:column>
 			</p:dataTable>
 		</div>
-		<div id="headerSecond">
+		<!-- >div id="headerSecond">
 			 
 			<f:insert name="header">
 				JSF Padrão - Consulta ao Cadastro de Passageiros
@@ -99,12 +98,12 @@
 				rendered="#{empty passageiroManagedBean.colecaoPassageiros}"
 				value="Nenhum registro encontrado"  
 			/>
-		</div>
+		</div -->
 		
 		<div id="footer">
 			<br />
 			<br />
 			<h:button value="Voltar" outcome="cadastro" />
 		</div>
-	</body>
+	</h:body>
 </html>
