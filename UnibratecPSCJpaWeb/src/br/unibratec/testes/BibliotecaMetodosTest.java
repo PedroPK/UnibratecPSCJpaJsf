@@ -1,8 +1,19 @@
 package br.unibratec.testes;
 
 import org.junit.Test;
+
+import br.unibratec.util.BibliotecaMetodos;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Assert;
+
+import static br.unibratec.util.BibliotecaMetodos.isCPFvalido;
 import static br.unibratec.util.BibliotecaMetodos.isObjetoValido;
+import static br.unibratec.util.BibliotecaMetodos.isStringNao;
+import static br.unibratec.util.BibliotecaMetodos.isStringSim;
 
 public class BibliotecaMetodosTest {
 	
@@ -54,6 +65,61 @@ public class BibliotecaMetodosTest {
 		boolean resultadoEsperado = false;
 		
 		assertEquals(resultadoEsperado, resultado);
+	}
+	
+	@Test
+	public void testarNao() {
+		String nao = "nao";
+		assertTrue(isStringNao(nao));
+		
+		nao = "não";
+		assertTrue(isStringNao(nao));
+		
+		nao = "Não";
+		assertTrue(isStringNao(nao));
+		
+		nao = "NAo";
+		assertTrue(isStringNao(nao));
+		
+		String outraCoisa = "sim";
+		assertFalse(isStringNao(outraCoisa));
+	}
+	
+	@Test
+	public void testarSim() {
+		String sim = "sim";
+		assertTrue(isStringSim(sim));
+		
+		sim = "Sim";
+		assertTrue(isStringSim(sim));
+		
+		sim = "SIm";
+		assertTrue(isStringSim(sim));
+		
+		String outraCoisa = "talvez";
+		assertFalse(isStringNao(outraCoisa));
+	}
+	
+	@Test
+	public void testarCPFvalido() {
+		String cpfValido = "123.456.789-01";
+		
+		assertTrue(isCPFvalido(cpfValido));
+	}
+	
+	@Test
+	public void testarCPFinvalido() {
+		String cpfInvalido = "123.456.789-0a";
+		assertFalse(isCPFvalido(cpfInvalido));
+		
+		cpfInvalido = "123.456.78902";
+		assertFalse(isCPFvalido(cpfInvalido));
+		
+		cpfInvalido = "123.456789-03";
+		assertFalse(isCPFvalido(cpfInvalido));
+		
+		cpfInvalido = "123.456,789-04";
+		assertFalse(isCPFvalido(cpfInvalido));
 	}
 	
 }

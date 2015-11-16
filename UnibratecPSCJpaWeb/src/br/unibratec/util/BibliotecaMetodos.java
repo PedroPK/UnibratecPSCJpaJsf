@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -13,7 +15,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.internal.BootstrapServiceRegistryImpl;
-import org.hibernate.service.internal.StandardServiceRegistryImpl;
 
 import br.unibratec.relacionamentos.manytomany.entidades.Aluno;
 
@@ -148,6 +149,34 @@ public class BibliotecaMetodos {
 		if ( pBoolean ) {
 			resposta = "Sim";
 		}
+		
+		return resposta;
+	}
+	
+	public static boolean isStringNao(String pString) {
+		boolean resposta = false;
+		if ( pString.equalsIgnoreCase("Não") || pString.equalsIgnoreCase("Nao") ) {
+			resposta = true;
+		}
+		return resposta;
+	}
+	
+	public static boolean isStringSim(String pString) {
+		boolean resposta = false;
+		if ( pString.equalsIgnoreCase("Sim") ) {
+			resposta = true;
+		}
+		
+		return resposta;
+	}
+	
+	public static boolean isCPFvalido(String pCPF) {
+		boolean resposta = false;
+		
+		Pattern padrao = Pattern.compile("[0-9]{3}[\\.][0-9]{3}[\\.][0-9]{3}[-][0-9]{2}");
+		Matcher matcher = padrao.matcher(pCPF);
+		
+		resposta = matcher.matches();
 		
 		return resposta;
 	}
