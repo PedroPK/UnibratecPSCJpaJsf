@@ -13,21 +13,28 @@
 		<h:form id="formularioPSC" prependId="false" enctype="multipart/form-data">
 			<h:panelGrid columns="2">
 				<h:outputLabel value="CPF" for="cpf" title="Cadastro de Pessoa Física" />
-				<h:inputText id="cpf" size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}" />
+				<h:inputText id="cpf" size="18" maxlength="14" rendered="true" value="#{passageiroManagedBean.passageiro.CPF}">
+					<!-- c:validateRegex pattern="[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}"/-->
+					<c:validator validatorId="cpfValidator" />
+				</h:inputText>
 				
 				Nome: <h:inputText value="#{passageiroManagedBean.passageiro.nome}" />
 				
-				e-Mail: <h:inputText value="#{passageiroManagedBean.passageiro.EMail}" />
+				e-Mail:		<h:inputText value="#{passageiroManagedBean.passageiro.EMail}">
+								<c:validateRegex pattern="([a-z]|[A-Z]|\d+)[@]([a-z]|[A-Z]+)[\.]([a-z]|[A-Z]+)" />
+							</h:inputText>
 				
 				Data de Nascimento: 
 					<h:inputText value="#{passageiroManagedBean.passageiro.dataNascimento}" >
 						<c:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Recife"/>
+						<!-- 	 pattern="[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}" /-->
 					</h:inputText>
 				Necessidades Especiais?
 					<h:selectBooleanCheckbox  value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:ajax render="deficiente" />
 					</h:selectBooleanCheckbox>
-					
+				<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
+				<h:commandButton value="Consultar" action="#{passageiroManagedBean.consultarGeral}" />
 				Painel oculto	<h:panelGroup id="deficiente">
 									<h:panelGroup rendered="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 										<h:outputText value="Now you See Me!"/>
@@ -90,8 +97,6 @@
 										</h:selectManyCheckbox>
 			</h:panelGrid>
 			<br/>
-			<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
-			<h:commandButton value="Consultar" action="#{passageiroManagedBean.consultarGeral}" />
 		</h:form>
 	</h:body>
 </html>
