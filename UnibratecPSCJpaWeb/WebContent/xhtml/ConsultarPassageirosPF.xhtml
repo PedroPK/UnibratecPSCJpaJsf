@@ -1,0 +1,103 @@
+<!DOCTYPE 
+	html 
+	PUBLIC 
+	"-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:c="http://xmlns.jcp.org/jsf/core"
+		xmlns:p="http://primefaces.org/ui"
+		
+>
+	<h:head>
+		<title><f:insert name="title">Tela de Consulta ao cadastro de Passageiros</f:insert></title>
+		<link rel="Stylesheet" type="text/css" href="../css/estilos.css" />
+	</h:head>
+	<h:body>
+		<f:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+		<div id="header">
+			 
+			<f:insert name="header">
+				PrimeFaces - Consulta ao Cadastro de Passageiros
+			</f:insert>
+		</div>
+		<div id="content">
+			<p:dataTable
+				id="primeFacesDataTable"
+				rendered="#{not empty passageiroManagedBean.colecaoPassageiros}"
+				value="#{passageiroManagedBean.colecaoPassageiros}"
+				var="pass"
+				rowIndexVar="index"
+			>
+				<c:facet name="cabeçalho">
+					Passageiros
+				</c:facet>
+				<p:column headerText="CPF">
+					<h:outputText value="#{pass.CPF}"/>
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{pass.nome}"/>
+				</p:column>
+				<p:column headerText="e-Mail">
+					<h:outputText value="#{pass.EMail}"/>
+				</p:column>
+				<p:column headerText="Data de Nascimento">
+					<h:outputText value="#{pass.dataNascimento}">
+						<c:convertDateTime type="date" dateStyle="long" locale="pt_BR" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Necessidades Especiais">
+					<h:outputText value="#{pass.isPortadorNecessidadesEspeciais}"/>
+				</p:column>
+				<p:column headerText="Crédito">
+					<h:outputText value="#{pass.creditoPromocoes}">
+						<c:convertNumber 
+							type="currency" maxFractionDigits="3" minFractionDigits="2"
+							currencySymbol="R$" locale="pt_BR"
+						/>
+					</h:outputText>
+				</p:column>
+				<p:column>
+					<p:commandButton 
+						oncomplete="PF('dialogPassageiro').show()"
+						update="panelPassageiro"
+						icon="ui-icon-search"
+						title="Lupa"
+					>
+						<c:setPropertyActionListener 
+							value="#{pass}" 
+							target="#{passageiroManagedBean.passageiro}"
+						/>
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+			<p:dialog 
+				header="Informação do Passageiro"
+				widgetVar="dialogPassageiro"
+				modal="true"
+				showEffect="fade"
+				hideEffect="fade"
+				resizable="false"
+			>
+				<p:outputPanel
+					id="panelPassageiro"
+				>
+					<p:panelGrid
+					columns="2"
+					rendered="#{not empty passageiroManagedBean.passageiro}"
+				>
+					<h:outputText value="CPF: " />
+					<h:outputText value="#{passageiroManagedBean.passageiro.CPF}"/>
+				</p:panelGrid>
+				</p:outputPanel>
+				
+			</p:dialog>
+		</div>
+		<div id="footer">
+			<br />
+			<br />
+			<h:button value="Voltar" outcome="cadastro" />
+		</div>
+	</h:body>
+</html>
