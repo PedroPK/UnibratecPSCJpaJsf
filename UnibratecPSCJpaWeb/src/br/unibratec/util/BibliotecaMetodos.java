@@ -186,7 +186,9 @@ public class BibliotecaMetodos {
 		boolean resposta = false;
 		
 		if ( isStringValida(pEmail) ) {
-			Pattern padrao = Pattern.compile("([a-z]|[A-Z]\\d{3})[@]([a-z]|[A-Z]{3})[\\.])([a-z]|[A-Z]{2})");
+			Pattern 
+				//padrao = Pattern.compile("(\\w+(\\._-)?\\w+)+[@]s([a-zA-Z]+\\.?[a-zA-Z]+)+");
+				padrao = Pattern.compile("\\w+((\\._-)?\\w+)*@\\w+(\\.\\w)+");
 			Matcher matcher = padrao.matcher(pEmail);
 			
 			resposta = matcher.matches();
