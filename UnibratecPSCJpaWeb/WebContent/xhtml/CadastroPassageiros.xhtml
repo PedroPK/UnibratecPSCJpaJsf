@@ -35,8 +35,10 @@
 					<h:selectBooleanCheckbox  value="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 						<c:ajax render="deficiente" />
 					</h:selectBooleanCheckbox>
-				<h:commandButton value="Salvar" action="#{passageiroManagedBean.inserir}" />
-				<h:commandButton value="Consultar" action="#{passageiroManagedBean.consultarGeral}" />
+					
+				<h:commandButton value="Salvar"		action="#{passageiroManagedBean.inserir}" />
+				<h:commandButton value="Consultar"	action="#{passageiroManagedBean.consultarGeral}" immediate="true" />
+				
 				Painel oculto	<h:panelGroup id="deficiente">
 									<h:panelGroup rendered="#{passageiroManagedBean.passageiro.isPortadorNecessidadesEspeciais}">
 										<h:outputText value="Now you See Me!"/>

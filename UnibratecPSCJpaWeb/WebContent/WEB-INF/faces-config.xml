@@ -9,18 +9,18 @@
 		<from-view-id>/xhtml/CadastroPassageiros.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>inserido</from-outcome>
-			<to-view-id>/xhtml/ConsultarPassageiros.xhtml</to-view-id>
+			<to-view-id>/xhtml/ConsultarPassageirosPF.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>consultar</from-outcome>
-			<to-view-id>/xhtml/ConsultarPassageiros.xhtml</to-view-id>
+			<to-view-id>/xhtml/ConsultarPassageirosPF.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>/xhtml/ConsultarPassageiros.xhtml</from-view-id>
+		<from-view-id>/xhtml/ConsultarPassageirosPF.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cadastro</from-outcome>
 			<to-view-id>/xhtml/CadastroPassageiros.xhtml</to-view-id>

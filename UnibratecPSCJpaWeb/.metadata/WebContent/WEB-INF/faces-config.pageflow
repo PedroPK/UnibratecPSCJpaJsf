@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14469198843200" configfile="/UnibratecPSCJpaWeb/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/CadastroPassageiros.xhtml" id="pf14469200927001" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14480638732230 pf14480638732231" inlinks="pf14480651303228" path="/xhtml/CadastroPassageiros.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/ConsultarPassageirosPF.xhtml" id="pf14480638732242" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14480651303228" inlinks="pf14480638732230 pf14480638732231" path="/xhtml/ConsultarPassageirosPF.xhtml"/>
+  <links id="pf14480638732230" target="pf14480638732242" source="pf14469200927001" outcome="inserido" redirect="true"/>
+  <links id="pf14480638732231" target="pf14480638732242" source="pf14469200927001" outcome="consultar" redirect="true"/>
+  <links id="pf14480651303228" target="pf14469200927001" source="pf14480638732242" outcome="cadastro" redirect="true"/>
+</pageflow:Pageflow>

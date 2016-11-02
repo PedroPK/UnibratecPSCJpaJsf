@@ -1,11 +1,14 @@
 package br.unibratec.web.jsf.managedbeans;
 
+import static br.unibratec.util.BibliotecaMetodos.isColecaoValida;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.PhaseId;
 import javax.servlet.http.Part;
 
@@ -14,6 +17,7 @@ import br.unibratec.entidades.enumerators.Escolaridade;
 import br.unibratec.linhasaereas.entidades.Passageiro;
 import br.unibratec.linhasaereas.fachada.FachadaLinhasAereas;
 import br.unibratec.linhasaereas.fachada.IFachadaLinhasAereas;
+import br.unibratec.util.BibliotecaMetodos;
 
 @ManagedBean
 @SessionScoped
@@ -43,7 +47,7 @@ public class PassageiroManagedBean {
 	}
 	
 	public Collection<Passageiro> getColecaoPassageiros() {
-		if ( this.aColecaoPassageiros == null ) {
+		if ( !isColecaoValida(this.aColecaoPassageiros) ) {
 			this.consultarGeral();
 		}
 		return aColecaoPassageiros;
@@ -58,7 +62,11 @@ public class PassageiroManagedBean {
 		if ( this.aPassageiro != null && this.aPassageiro.isChavePrimariaValida() ) {
 			IFachadaLinhasAereas fachada = new FachadaLinhasAereas();
 			fachada.inserir(this.aPassageiro);
-			resultado = "inserido";
+			
+			// Limpa a referência para o último registro inserido.
+			this.aPassageiro = null;
+			
+			resultado = "consultar";
 		}
 		
 		return resultado;
