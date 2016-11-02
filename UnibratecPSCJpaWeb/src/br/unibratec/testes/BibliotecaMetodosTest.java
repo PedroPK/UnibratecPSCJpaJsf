@@ -128,6 +128,15 @@ public class BibliotecaMetodosTest {
 	public void testarEmailsValidos() {
 		String emailValido = "pedropk@gmail.com";
 		assertTrue(isEmailValido(emailValido));
+		
+		emailValido = "pedro.pk@gmail.com";
+		assertTrue(isEmailValido(emailValido));
+		
+		emailValido = "pedropk.0fd90@m.evernote.com";
+		assertTrue(isEmailValido(emailValido));
+		
+		emailValido = "pedro.f-santos@sefaz.pe.gov.br";
+		assertTrue(isEmailValido(emailValido));
 	}
 	
 }
